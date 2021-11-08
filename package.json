@@ -12,7 +12,6 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@react-google-maps/api": "^2.5.0",
-    "@types/googlemaps": "^3.39.3",
     "date-fns": "^2.11.1",
     "emotion": "^10.0.27",
     "emotion-server": "^10.0.27",
@@ -24,6 +23,7 @@
     "remark-html": "^11.0.1"
   },
   "devDependencies": {
+    "@types/googlemaps": "^3.39.3",
     "@types/node": "^13.13.4",
     "@types/react": "^16.9.34",
     "@typescript-eslint/eslint-plugin": "^2.30.0",
