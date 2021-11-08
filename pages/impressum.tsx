@@ -1,6 +1,6 @@
-import React from "react";
-import BackLink from "../components/BackLink";
-import Layout from "../components/layout";
+import React from 'react';
+import BackLink from '../components/BackLink';
+import Layout from '../components/layout';
 
 const SecondPage = () => (
   <Layout>
@@ -8,13 +8,17 @@ const SecondPage = () => (
       <BackLink />
       <h3>Impressum</h3>
       <p>
-        Angaben gemäß § 5 TMG:<br />
+        Angaben gemäß § 5 TMG:
+        <br />
         <br />
       </p>
       <p>
-        Immobiliengesellschaft Tiefgarage Salzgrafenplatz mbH & Co. KG<br />
-        Am Promenadenweg 22<br />
-        61231 Bad Nauheim<br />
+        Immobiliengesellschaft Tiefgarage Salzgrafenplatz mbH & Co. KG
+        <br />
+        Am Promenadenweg 22
+        <br />
+        61231 Bad Nauheim
+        <br />
       </p>
       <h4>Komplentär:</h4>
       <p>
@@ -33,16 +37,18 @@ const SecondPage = () => (
       </table>
       <h4>Registereintrag:</h4>
       <p>
-        Eintragung im Handelsregister. <br />Registergericht:Amtsgericht
-        Friedberg (Hessen) <br />Registernummer: HRA3823
+        Eintragung im Handelsregister. <br />
+        Registergericht:Amtsgericht Friedberg (Hessen) <br />
+        Registernummer: HRA3823
       </p>
       <h4>Umsatzsteuer-ID:</h4>
       <p>
-        Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br />
+        Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:
+        <br />
         DE185177318
       </p>
       <p>
-        Quelle:{" "}
+        Quelle:{' '}
         <i>
           <a
             href="http://www.e-recht24.de"
@@ -50,13 +56,14 @@ const SecondPage = () => (
             rel="noopener noreferrer"
           >
             eRecht24
-          </a>, Rechtsanwalt für Internetrecht Sören Siebert
+          </a>
+          , Rechtsanwalt für Internetrecht Sören Siebert
         </i>
       </p>
       <h4>Haftungsausschluss:</h4>
       <p>
         <strong>Haftung für Inhalte</strong>
-      </p>{" "}
+      </p>{' '}
       <p>
         Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die
         Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir
@@ -75,7 +82,7 @@ const SecondPage = () => (
       </p>
       <p>
         <strong>Urheberrecht</strong>
-      </p>{" "}
+      </p>{' '}
       <p>
         Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen
         Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung,
@@ -92,21 +99,21 @@ const SecondPage = () => (
       </p>
       <p>
         <strong>Datenschutz</strong>
-      </p>{" "}
+      </p>{' '}
       <p>
         Die Nutzung unserer Webseite ist in der Regel ohne Angabe
         personenbezogener Daten möglich. Soweit auf unseren Seiten
         personenbezogene Daten (beispielsweise Name, Anschrift oder
         eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf
         freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche
-        Zustimmung nicht an Dritte weitergegeben.{" "}
-      </p>{" "}
+        Zustimmung nicht an Dritte weitergegeben.{' '}
+      </p>{' '}
       <p>
         Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei
         der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein
         lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht
-        möglich.{" "}
-      </p>{" "}
+        möglich.{' '}
+      </p>{' '}
       <p>
         Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten
         Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich
@@ -118,7 +125,7 @@ const SecondPage = () => (
       <p />
       <p>
         <i>
-          Quellverweis:{" "}
+          Quellverweis:{' '}
           <a
             href="http://www.e-recht24.de/muster-disclaimer.htm"
             target="_blank"

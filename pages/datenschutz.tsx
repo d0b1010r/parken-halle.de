@@ -1,6 +1,6 @@
-import React from "react";
-import BackLink from "../components/BackLink";
-import Layout from "../components/layout";
+import React from 'react';
+import BackLink from '../components/BackLink';
+import Layout from '../components/layout';
 
 const SecondPage = () => (
   <Layout>
@@ -66,7 +66,7 @@ const SecondPage = () => (
         Begriffe:
       </p>
 
-      <ul style={{ listStyle: "none" }}>
+      <ul style={{ listStyle: 'none' }}>
         <li>
           <h4>a)    personenbezogene Daten</h4>
           <p>
@@ -273,7 +273,7 @@ const SecondPage = () => (
       </p>
 
       <h4>5. Rechte der betroffenen Person</h4>
-      <ul style={{ listStyle: "none" }}>
+      <ul style={{ listStyle: 'none' }}>
         <li>
           <h4>a)    Recht auf Bestätigung</h4>
           <p>
@@ -298,7 +298,7 @@ const SecondPage = () => (
             betroffenen Person Auskunft über folgende Informationen zugestanden:
           </p>
 
-          <ul style={{ listStyle: "none" }}>
+          <ul style={{ listStyle: 'none' }}>
             <li>die Verarbeitungszwecke</li>
             <li>
               die Kategorien personenbezogener Daten, die verarbeitet werden
@@ -382,7 +382,7 @@ const SecondPage = () => (
             Verarbeitung nicht erforderlich ist:
           </p>
 
-          <ul style={{ listStyle: "none" }}>
+          <ul style={{ listStyle: 'none' }}>
             <li>
               Die personenbezogenen Daten wurden für solche Zwecke erhoben oder
               auf sonstige Weise verarbeitet, für welche sie nicht mehr
@@ -453,7 +453,7 @@ const SecondPage = () => (
             zu verlangen, wenn eine der folgenden Voraussetzungen gegeben ist:
           </p>
 
-          <ul style={{ listStyle: "none" }}>
+          <ul style={{ listStyle: 'none' }}>
             <li>
               Die Richtigkeit der personenbezogenen Daten wird von der
               betroffenen Person bestritten, und zwar für eine Dauer, die es dem
@@ -737,15 +737,15 @@ const SecondPage = () => (
       <p>
         Diese Datenschutzerklärung wurde durch den
         Datenschutzerklärungs-Generator der DGD Deutsche Gesellschaft für
-        Datenschutz GmbH, die als{" "}
+        Datenschutz GmbH, die als{' '}
         <a href="https://dg-datenschutz.de/datenschutz-dienstleistungen/externer-datenschutzbeauftragter/">
           Externer Datenschutzbeauftragter Berlin
-        </a>{" "}
-        tätig ist, in Kooperation mit den{" "}
+        </a>{' '}
+        tätig ist, in Kooperation mit den{' '}
         <a href="https://www.wbs-law.de/">
           Datenschutz (DSGVO) Anwälten der Kanzlei WILDE BEUGER SOLMECKE |
           Rechtsanwälte
-        </a>{" "}
+        </a>{' '}
         erstellt.
       </p>
     </div>
