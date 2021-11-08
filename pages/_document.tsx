@@ -1,4 +1,10 @@
-import Document, { Head, Main, NextScript, DocumentProps } from 'next/document';
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentProps,
+} from 'next/document';
 import { extractCritical } from 'emotion-server';
 
 type MyDocumentProps = DocumentProps & {
@@ -15,7 +21,7 @@ export default class MyDocument extends Document<MyDocumentProps> {
 
   render() {
     return (
-      <html>
+      <Html>
         <Head>
           <style
             data-emotion-css={this.props.ids.join(' ')}
@@ -26,7 +32,7 @@ export default class MyDocument extends Document<MyDocumentProps> {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
