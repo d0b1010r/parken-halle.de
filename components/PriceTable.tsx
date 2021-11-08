@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import { css } from 'emotion';
 
 const TablePrice = styled('table')`
   width: 100%;
@@ -26,7 +25,7 @@ type PriceRow = {
   label: string;
   price: string;
 };
-function PriceRow({ label, price }: PriceRow) {
+function PriceRow({ label, price }: PriceRow): JSX.Element {
   return (
     <tr>
       <td>{label}</td>
@@ -45,7 +44,11 @@ type PriceSectionProps = {
   hint?: string;
 };
 
-function PriceSection({ title, children, hint }: PriceSectionProps) {
+function PriceSection({
+  title,
+  children,
+  hint,
+}: PriceSectionProps): JSX.Element {
   return (
     <div>
       <h2>{title}</h2>
@@ -68,7 +71,7 @@ PriceSection.propTypes = {
   children: PropTypes.any,
 };
 
-function PriceTable() {
+function PriceTable(): JSX.Element {
   return (
     <div>
       <PriceSection title="Preise Tiefgarage Spitze">

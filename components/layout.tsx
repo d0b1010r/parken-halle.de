@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import PropTypes from 'prop-types';
 import Head from 'next/head';
 import styled from '@emotion/styled';
 import { Footer } from './Footer';
@@ -35,7 +34,7 @@ const StyledHeader = styled.div`
   align-items: center;
 `;
 
-const Header = () => (
+const Header = (): JSX.Element => (
   <StyledHeader>
     <Logo src="/images/logo.svg" />
     <Caption>Parken in Halle-Spitze</Caption>
@@ -58,7 +57,7 @@ type TemplateWrapperProps = {
   children?: ReactNode;
 };
 
-const TemplateWrapper = ({ children }: TemplateWrapperProps) => (
+const TemplateWrapper = ({ children }: TemplateWrapperProps): JSX.Element => (
   <div>
     <Head>
       <title>{siteTitle}</title>

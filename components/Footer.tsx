@@ -1,9 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-const UnstyledFooter = ({ className }: { className?: string }) => (
+const UnstyledFooter = ({ className }: { className?: string }): JSX.Element => (
   <footer className={className}>
     <Link href="/impressum">
       <a>Impressum</a>

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { ReactNode } from 'react';
-import { css, jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import BigRowLink from '../components/BigRowLink';
 import Layout from '../components/layout';
@@ -20,13 +19,13 @@ function LocationLink({
   children,
   handleMouse,
   selectedLocation,
-}: LocationLinkProps) {
+}: LocationLinkProps): JSX.Element {
   return (
     <i
-      onMouseEnter={() => {
+      onMouseEnter={(): void => {
         handleMouse(locationKey);
       }}
-      onMouseLeave={() => handleMouse()}
+      onMouseLeave={(): void => handleMouse()}
       style={{
         cursor: 'default',
         borderBottom: '1px solid rgba(255,255,255, 0)',
@@ -61,13 +60,13 @@ interface LeftColumnState {
 
 class LeftColumn extends React.Component<object, LeftColumnState> {
   public readonly state: LeftColumnState = leftColumnInitialState;
-  public handleMouseOver(locationKey?: string) {
+  public handleMouseOver(locationKey?: string): void {
     this.setState({
       selectedLocation: locationKey || null,
     });
   }
-  public render() {
-    const { locations, selectedLocation } = this.state;
+  public render(): JSX.Element {
+    const { selectedLocation } = this.state;
     return (
       <ContentLeft>
         {' '}
@@ -149,7 +148,7 @@ const TextLink = styled.a`
   text-decoration: none;
 `;
 
-const RightColumn = () => (
+const RightColumn = (): JSX.Element => (
   <ContentRight>
     <PriceTable />
     <BigRowLink href="mailto:mail@parken-halle.de?subject=Mietanfrage&amp;body=Sehr%20geehrte%20Damen%20und%20Herren%2C%0A%0Aich%20habe%20Interesse%20an%20einem%20Dauerstellplatz%3A%0A%0AName%3A%20%0AZeitraum%3A%20%0AParkplatz%3A%20TG%20unter%20EVH%2F%20TG%20am%20Hallmarkt%20%2F%20H%C3%A4ndel-Halle%0ANutzung%3A%20Privat%20oder%20Gewerblich%0AE-Mail%3A%20%0AAnschrift%3A%20">
@@ -178,7 +177,7 @@ const RightColumn = () => (
   </ContentRight>
 );
 
-const IndexPage = () => (
+const IndexPage = (): JSX.Element => (
   <Layout>
     <div>
       <LeftColumn />

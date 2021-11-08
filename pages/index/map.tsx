@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import {
   GoogleMap,
@@ -9,7 +8,12 @@ import {
   Polyline,
 } from '@react-google-maps/api';
 
-function InfoMarker({ info, icon, position, opacity }: InfoMarkerProps) {
+function InfoMarker({
+  info,
+  icon,
+  position,
+  opacity,
+}: InfoMarkerProps): JSX.Element {
   const [showInfo, setShowInfo] = React.useState(false);
 
   return (
@@ -17,10 +21,10 @@ function InfoMarker({ info, icon, position, opacity }: InfoMarkerProps) {
       icon={icon}
       position={position}
       opacity={opacity}
-      onClick={() => setShowInfo(!showInfo)}
+      onClick={(): void => setShowInfo(!showInfo)}
     >
       {showInfo && info ? (
-        <InfoWindow onCloseClick={() => setShowInfo(false)}>
+        <InfoWindow onCloseClick={(): void => setShowInfo(false)}>
           <div>{info}</div>
         </InfoWindow>
       ) : null}
@@ -29,7 +33,6 @@ function InfoMarker({ info, icon, position, opacity }: InfoMarkerProps) {
 }
 
 const parkingGarageIcon = '/images/icon-parking-garage.png';
-const parkingPlaceIcon = '/images/icon-parking-space.png';
 
 const places = {
   evh: {
@@ -54,7 +57,10 @@ const places = {
   },
 };
 
-function createMarkers(places: Places, selectedLocation?: string) {
+function createMarkers(
+  places: Places,
+  selectedLocation?: string
+): JSX.Element[] {
   return Object.keys(places).map((key) => (
     <InfoMarker
       key={key}
@@ -66,7 +72,7 @@ function createMarkers(places: Places, selectedLocation?: string) {
   ));
 }
 
-function createLines(places: Places, selectedLocation: string) {
+function createLines(places: Places, selectedLocation: string): JSX.Element[] {
   const lines: Lines = {
     evh: [
       places.entry.position,
@@ -112,32 +118,22 @@ const containerStyle = {
   height: '400px',
 };
 
-function MapPropped({ selectedLocation }: { selectedLocation: string }) {
+function MapPropped({
+  selectedLocation,
+}: {
+  selectedLocation: string;
+}): JSX.Element {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: 'AIzaSyDdbfN_GFY4b4IpKnGBH6L3jJWo2RXSQeU',
   });
 
-  const [map, setMap] = React.useState(null);
-
-  const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds();
-    map.fitBounds(bounds);
-    setMap(map);
-  }, []);
-
-  const onUnmount = React.useCallback(function callback(map) {
-    setMap(null);
-  }, []);
-
   return isLoaded ? (
     <GoogleMap
       zoom={17}
       center={{ lat: 51.4811, lng: 11.9645 }}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
       mapContainerStyle={containerStyle}
-      onClick={(ev) => {
+      onClick={(ev: google.maps.MapMouseEvent): void => {
         console.log(`{ lat: ${ev.latLng.lat()}, lng: ${ev.latLng.lng()} }`); // eslint-disable-line no-console
       }}
     >

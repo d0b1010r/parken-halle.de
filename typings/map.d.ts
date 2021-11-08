@@ -17,7 +17,7 @@ type InfoMarkerProps = {
 type Place = {
   position: Coords;
   info: string;
-  icon: any;
+  icon: string;
 };
 
 type Lines = {

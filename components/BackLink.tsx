@@ -13,7 +13,7 @@ type BackLinkProps = {
   children?: ReactNode;
 };
 
-export default function BackLink({ to, children }: BackLinkProps) {
+export default function BackLink({ to, children }: BackLinkProps): JSX.Element {
   return (
     <Link href={to || '/'} passHref>
       <BackLinkStyled>{children || 'Zurück'}</BackLinkStyled>

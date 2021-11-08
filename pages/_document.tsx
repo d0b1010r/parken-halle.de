@@ -8,18 +8,18 @@ import Document, {
 import { extractCritical } from 'emotion-server';
 
 type MyDocumentProps = DocumentProps & {
-  ids: any;
-  css: any;
+  ids: string[];
+  css: string;
 };
 
 export default class MyDocument extends Document<MyDocumentProps> {
-  static getInitialProps({ renderPage }) {
+  static getInitialProps({ renderPage }): Promise<MyDocumentProps> {
     const page = renderPage();
     const styles = extractCritical(page.html);
     return { ...page, ...styles };
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <Html>
         <Head>

@@ -2,7 +2,7 @@ import React from 'react';
 import BackLink from '../components/BackLink';
 import Layout from '../components/layout';
 
-const SecondPage = () => (
+const SecondPage = (): JSX.Element => (
   <Layout>
     <div>
       <BackLink />
