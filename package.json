@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "@react-google-maps/api": "^2.5.0",
     "@types/googlemaps": "^3.39.3",
     "date-fns": "^2.11.1",
     "emotion": "^10.0.27",
@@ -19,7 +20,6 @@
     "next": "^10.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-google-maps": "^9.4.5",
     "remark": "^12.0.0",
     "remark-html": "^11.0.1"
   },

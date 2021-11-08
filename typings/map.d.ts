@@ -27,7 +27,3 @@ type Lines = {
 type Places = {
   [index: string]: Place;
 };
-
-type MapPropped = {
-  selectedLocation: string;
-};

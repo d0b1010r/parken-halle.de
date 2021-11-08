@@ -1,38 +1,32 @@
-/* global google */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
   GoogleMap,
+  useJsApiLoader,
   Marker,
   InfoWindow,
-  withScriptjs,
-  withGoogleMap,
   Polyline,
-} from 'react-google-maps';
+} from '@react-google-maps/api';
 
-class InfoMarker extends React.Component<InfoMarkerProps> {
-  readonly state: InfoMarkerState = {
-    showInfo: false,
-  };
-  render() {
-    return (
-      <Marker
-        {...this.props}
-        onClick={() => this.setState({ showInfo: !this.state.showInfo })}
-      >
-        {this.state.showInfo && this.props.info ? (
-          <InfoWindow onCloseClick={() => this.setState({ showInfo: false })}>
-            <div>{this.props.info}</div>
-          </InfoWindow>
-        ) : null}
-      </Marker>
-    );
-  }
+function InfoMarker({ info, icon, position, opacity }: InfoMarkerProps) {
+  const [showInfo, setShowInfo] = React.useState(false);
+
+  return (
+    <Marker
+      icon={icon}
+      position={position}
+      opacity={opacity}
+      onClick={() => setShowInfo(!showInfo)}
+    >
+      {showInfo && info ? (
+        <InfoWindow onCloseClick={() => setShowInfo(false)}>
+          <div>{info}</div>
+        </InfoWindow>
+      ) : null}
+    </Marker>
+  );
 }
-// InfoMarker.propTypes = {
-//   info: PropTypes.string
-// };
 
 const parkingGarageIcon = '/images/icon-parking-garage.png';
 const parkingPlaceIcon = '/images/icon-parking-space.png';
@@ -61,7 +55,6 @@ const places = {
 };
 
 function createMarkers(places: Places, selectedLocation?: string) {
-  const info = places.evh.icon;
   return Object.keys(places).map((key) => (
     <InfoMarker
       key={key}
@@ -72,10 +65,6 @@ function createMarkers(places: Places, selectedLocation?: string) {
     />
   ));
 }
-
-// function positionFactory(obj) {
-//   return <Position>obj;
-// }
 
 function createLines(places: Places, selectedLocation: string) {
   const lines: Lines = {
@@ -118,30 +107,46 @@ function createLines(places: Places, selectedLocation: string) {
   ));
 }
 
-const Map = withScriptjs(
-  withGoogleMap(({ selectedLocation }: MapPropped) => (
+const containerStyle = {
+  width: '400px',
+  height: '400px',
+};
+
+function MapPropped({ selectedLocation }: { selectedLocation: string }) {
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: 'AIzaSyDdbfN_GFY4b4IpKnGBH6L3jJWo2RXSQeU',
+  });
+
+  const [map, setMap] = React.useState(null);
+
+  const onLoad = React.useCallback(function callback(map) {
+    const bounds = new window.google.maps.LatLngBounds();
+    map.fitBounds(bounds);
+    setMap(map);
+  }, []);
+
+  const onUnmount = React.useCallback(function callback(map) {
+    setMap(null);
+  }, []);
+
+  return isLoaded ? (
     <GoogleMap
-      defaultZoom={17}
-      defaultCenter={{ lat: 51.4811, lng: 11.9645 }}
+      zoom={17}
+      center={{ lat: 51.4811, lng: 11.9645 }}
+      onLoad={onLoad}
+      onUnmount={onUnmount}
+      mapContainerStyle={containerStyle}
       onClick={(ev) => {
-        /* eslint no-console: 0 */
-        console.log(`{ lat: ${ev.latLng.lat()}, lng: ${ev.latLng.lng()} }`);
+        console.log(`{ lat: ${ev.latLng.lat()}, lng: ${ev.latLng.lng()} }`); // eslint-disable-line no-console
       }}
     >
       {createLines(places, selectedLocation)}
       {createMarkers(places, selectedLocation)}
     </GoogleMap>
-  ))
-);
-
-const MapPropped = (props: any) => (
-  <Map
-    googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDdbfN_GFY4b4IpKnGBH6L3jJWo2RXSQeU"
-    loadingElement={<div style={{ height: `100%` }} />}
-    containerElement={<div style={{ height: `400px` }} />}
-    mapElement={<div style={{ height: `100%` }} />}
-    {...props}
-  />
-);
+  ) : (
+    <></>
+  );
+}
 
 export default MapPropped;
