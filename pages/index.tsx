@@ -10,7 +10,7 @@ import Badge from '../components/Badge';
 interface LocationLinkProps {
   locationKey: string;
   children: ReactNode;
-  handleMouse: Function;
+  handleMouse: (string?) => void;
   selectedLocation: string | null;
 }
 
