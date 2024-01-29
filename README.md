@@ -9,3 +9,5 @@ Code style & deplyoment:
 * eslint
 * prettier
 * Automatic deployment via SFTP
+
+Have fun!
